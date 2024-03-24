@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zez Excel</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/Zez Excel.ico') }}">
+</head>
+<body>
+    <header>
+        <h1>Zez <span class="excel">Excel</span></h1>
+        <img src="{{ url_for('static', filename='img/Zez Excel logo.png') }}" alt="Logo" class="logo">
+    </header>
+    <div class="container">
+        <button id="startButton" class="startbutton" onclick="showButtons()">Iniciar</button>
+        <div class="buttons-container" id="buttons-container" style="display: none;">
+            <button class="button" onclick="converterArquivos()">Converter Arquivos</button>
+            <button class="button" onclick="manipularTabelas()">Manipular Tabelas</button>
+            <button class="button" onclick="manipularDados()">Manipular Dados</button>
+            <button class="button" onclick="montarGrafico()">Montar Gráfico</button>
+        </div>        
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>    
+</body>
+</html>
