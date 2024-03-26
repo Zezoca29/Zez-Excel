@@ -1,11 +1,11 @@
 function converterArquivos() {
-    // Lógica para a conversão de arquivos
-    console.log('Conversão de arquivos');
+    // Redirecionar para a rota de conversão de arquivos
+    window.location.href = '/converter';
 }
 
 function manipularTabelas() {
     // Lógica para a manipulação de tabelas
-    console.log('Manipulação de tabelas');
+    window.location.href = '/manipular';
 }
 
 function manipularDados() {

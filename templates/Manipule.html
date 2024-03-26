@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulação de Dados</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/manipule.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/Zez Excel.ico') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+</head>
+<body>
+    <h1>Manipulação de Dados</h1>
+    <form id="upload-form" enctype="multipart/form-data">
+        <input type="file" name="file" id="file">
+        <button type="submit">Enviar</button>
+    </form>
+    <table id="table-data" class="sortable">
+        <!-- Os dados do arquivo Excel serão renderizados aqui -->
+    </table>
+    <script>
+        Sortable.create(document.getElementById('table-data'), {
+            handle: 'th',
+            animation: 150
+        });
+
+        document.getElementById('upload-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            fetch('/upload-excel', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                renderTable(data);
+            });
+        });
+
+        function renderTable(data) {
+            const table = document.getElementById('table-data');
+            table.innerHTML = ''; // Limpa a tabela antes de adicionar novos dados
+            if (!data) return;
+
+            const headers = Object.keys(data[0]);
+            const headerRow = document.createElement('tr');
+            headers.forEach(header => {
+                const th = document.createElement('th');
+                th.textContent = `Coluna ${header}`;
+                headerRow.appendChild(th);
+            });
+            table.appendChild(headerRow);
+
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                headers.forEach(header => {
+                    const td = document.createElement('td');
+                    td.textContent = row[header];
+                    td.contentEditable = true; // Permite a edição da célula
+                    tr.appendChild(td);
+                });
+                table.appendChild(tr);
+            });
+        }
+    </script>
+</body>
+</html>

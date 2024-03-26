@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conversão de Arquivos</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/converter.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/Zez Excel.ico') }}">
+</head>
+<body>
+    <h1>Conversão de Arquivos</h1>
+    <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" id="file" accept=".xlsx, .xls">
+        <br><br>
+        <label for="conversion">Selecione o tipo de conversão:</label>
+        <select name="conversion" id="conversion">
+            <option value="CSV">CSV</option>
+            <option value="JSON">JSON</option>
+            <option value="XML">XML</option>
+            <option value="SQL">SQL</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Upload e Converter">
+    </form>
+
+    {% if download_link %}
+        <br><br>
+        <a href="{{ download_link }}" download>Download do Arquivo Convertido</a>
+    {% endif %}
+</body>
+</html>
