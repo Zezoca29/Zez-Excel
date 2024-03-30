@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, url_for, send_file
+from flask import Flask, jsonify, redirect, render_template, request, url_for, send_file
 from werkzeug.utils import secure_filename
 import pandas as pd
 import json
@@ -129,6 +129,22 @@ def upload_excel():
 
     else:
         return 'Arquivo não permitido'
+
+@app.route('/analise_dados')
+def analise_dados():
+    return render_template('analise.html')
+
+@app.route('/uploadanalises', methods=['POST'])
+def uploadanalises():
+    file = request.files['file']
+    if file:
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        df = pd.read_excel(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        columns = df.columns.tolist()
+        data = df.to_dict(orient='records')
+        return jsonify({'columns': columns, 'data': data})
+    return jsonify({'error': 'No file provided'})
 
 
 

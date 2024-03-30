@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Análise de Dados</title>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/tabulator-tables/dist/css/tabulator.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/Zez Excel.ico') }}">
+</head>
+<body>
+    <header>
+        <h1>Análise de <span class="excel">Dados</span></h1>
+        <img src="{{ url_for('static', filename='img/Zez Excel logo.png') }}" alt="Logo" class="logo">
+    </header>
+
+    <div class="controls">
+        <form id="uploadForm" enctype="multipart/form-data" method="post" action="/uploadanalises">
+            <input type="file" id="fileInput" name="file" accept=".xlsx,.xls">
+            <button class="btn-upload" type="button" onclick="uploadFile()">Importar Tabela</button>
+
+        </form>
+        <label for="columns">Selecione uma coluna:</label>
+        <select id="columns"></select>
+        <label for="operation">Selecione a operação:</label>
+        <select id="operation">
+            <option value="sum">Soma</option>
+            <option value="mean">Média</option>
+            <option value="median">Mediana</option>
+            <option value="mode">Moda</option>
+        </select>
+        <button class="btn-calculate" onclick="calculate()">Calcular</button>
+        <input type="text" id="result" placeholder="Resultado" readonly>
+    </div>
+
+    <div class="table-container">
+        <table id="excel-table"></table>
+    </div>
+
+    <script src="https://unpkg.com/tabulator-tables/dist/js/tabulator.min.js"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

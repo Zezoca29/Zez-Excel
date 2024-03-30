@@ -83,3 +83,49 @@ h1 {
     margin-top: 20px;
 
 }
+
+#tabelaDados {
+    margin: 0 20px; /* Margem de 20px nos lados esquerdo e direito */
+}
+
+input#inputFile {
+    margin-bottom: 10px;
+}
+
+/* Estilos para o botão de importar tabela */
+.btn-upload {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 5px;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.btn-upload:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para o botão de calcular */
+.btn-calculate {
+    background-color: #5900a1;
+    color: white;
+    padding: 5px 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 2px;
+}
+
+.btn-calculate:hover {
+    background-color: #0073a8;
+}
+
+.table-container {
+    padding: 10px; /* Adiciona um espaçamento de 10px em todos os lados da div */
+}
+
+form#uploadForm {
+    margin-bottom: 15px;
+}
