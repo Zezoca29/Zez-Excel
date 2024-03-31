@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    box-sizing: border-box;
+    background: #00ff00; /* degrade branco e verde */
+    background-size: cover; /* cobrir todo o espaço disponível */
+    background-position: center; /* centralizar a imagem de fundo */
+    height: 100vh; /* altura 100% da viewport */
+    width: 100vw; /* largura 100% da viewport */
+    font-family: Arial, sans-serif; /* fonte do texto */
+    color: #333; /* cor do texto */
+}
+
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: white; /* cor do texto branco */
+    text-shadow: 2px 2px 4px #000000; /* sombra no texto */
+    font-size: 48px; /* tamanho da fonte */
+    margin-bottom: 20px;
+}
+
+.excel {
+    color: #00ff00; /* cor verde */
+}
+
+.logo {
+    max-width: 200px; /* largura máxima da imagem */
+    margin-top: 20px; /* margem superior */
+    
+}
+
+.button {
+    background-color: #4CAF50; /* cor de fundo verde */
+    border: none; /* remover borda */
+    color: white; /* cor do texto branco */
+    padding: 15px 32px; /* espaço interno */
+    text-align: center; /* alinhar texto ao centro */
+    text-decoration: none; /* remover sublinhado */
+    display: inline-block; /* exibir como elemento inline */
+    font-size: 16px; /* tamanho da fonte */
+    margin: 8px 4px; /* margem entre os botões */
+    cursor: pointer; /* cursor do mouse como ponteiro */
+    border-radius: 10px; /* borda arredondada */
+}
+
+.button:hover {
+    background-color: #45a049; /* cor de fundo verde mais escura ao passar o mouse */
+    transform: scale(1.1);
+}
+
+#buttons-container {
+    display: none; /* ocultar os botões inicialmente */
+}
+
+#startButton {
+    background-color: #1d7e00; /* cor de fundo azul */
+    border: 2px solid white; /* remover borda */
+    color: white; /* cor do texto branco */
+    text-align: center; /* alinhar texto ao centro */
+    text-decoration: none; /* remover sublinhado */
+    font-size: 16px; /* tamanho da fonte */
+    cursor: pointer; /* cursor do mouse como ponteiro */
+    border-radius: 10px; /* borda arredondada */
+    padding: 15px 32px;
+    margin-top: 30px;
+}
+
+#startButton:hover {
+    background-color: #ffffff; /* cor de fundo verde mais escura ao passar o mouse */
+    border: 2px solid black; /* remover borda */
+    color:green;
+    font-weight: bold;
+    transform: scale(1.1);
+}
+
+
+.container.startbutton{
+    margin-top: 20px;
+
+}
+
+#tabelaDados {
+    margin: 0 20px; /* Margem de 20px nos lados esquerdo e direito */
+}
+
+input#inputFile {
+    margin-bottom: 10px;
+}
+
+/* Estilos para o botão de importar tabela */
+.btn-upload {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 5px;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.btn-upload:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para o botão de calcular */
+.btn-calculate {
+    background-color: #5900a1;
+    color: white;
+    padding: 5px 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 2px;
+}
+
+.btn-calculate:hover {
+    background-color: #0073a8;
+}
+
+.table-container {
+    padding: 10px; /* Adiciona um espaçamento de 10px em todos os lados da div */
+}
+
+form#uploadForm {
+    margin-bottom: 15px;
+}

@@ -1,0 +1,44 @@
+/* Estilo para o select */
+select#columns {
+    width: 80%;
+    height: 200px; /* Altura da lista de seleção */
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+    overflow-y: auto; /* Adiciona uma barra de rolagem vertical */
+}
+
+/* Estilo para as opções do select */
+select#columns option {
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Estilo para o hover das opções do select */
+select#columns option:hover {
+    background-color: #e9ecef;
+}
+
+/* Estilo para o foco das opções do select */
+select#columns option:focus {
+    outline: none;
+    background-color: #e9ecef;
+}
+
+#grafico {
+    margin: 20px auto;
+    max-width: 800px; /* Define a largura máxima do gráfico */
+    padding: 20px;
+    border-radius: 10px; /* Adiciona bordas arredondadas */
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.7); /* Adiciona uma sombra verde neon */
+}
+
+/* Cor das porcentagens em branco e em negrito */
+.plotly-graph-div .percenttext {
+    fill: white !important;
+    font-weight: bold !important;
+}

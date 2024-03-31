@@ -1,0 +1,21 @@
+Data da Venda,Número da Venda,Cliente,Produto(s) Vendido(s),Quantidade Vendida,Valor Unitário Mensal,Valor Total,Forma de Pagamento,Status da Venda,Vendedor Responsável
+2024-03-01,1,Apple Inc.,Zez Password,5,100,500,Cartão de Crédito,Concluído,Pedro Almeida
+2024-03-05,2,Google LLC,Zez Performance,10,200,2000,Cartão de Débito,Não Realizado,Maria Oliveira
+2024-03-08,3,Microsoft Corporation,Zez Flow,3,120,360,Boleto Bancário,Em Andamento,Ana Silva
+2024-03-12,4,Amazon.com Inc.,Zez Excel,8,150,1200,Transferência Bancária,Não Realizado,Laura Costa
+2024-03-15,5,"Facebook, Inc. (Meta Platforms)",Zez Flow,2,120,240,PIX,Em Andamento,João Santos
+2024-03-18,6,"Tesla, Inc.",Zez Excel,6,150,900,PayPal,Concluído,Maria Oliveira
+2024-03-22,7,"Netflix, Inc.",Zez Performance,4,200,800,PagSeguro,Em Andamento,Pedro Almeida
+2024-03-25,8,"Samsung Electronics Co., Ltd.",Zez Excel,7,150,1050,PicPay,Concluído,João Santos
+2024-03-28,9,IBM (International Business Machines Corporation),Zez Password,9,100,900,Mercado Pago,Não Realizado,Laura Costa
+2024-04-02,10,Oracle Corporation,Zez Flow,1,120,120,Apple Pay,Em Andamento,Ana Silva
+2024-04-05,11,"Cisco Systems, Inc.",Zez Password,3,100,300,Google Pay,Concluído,Pedro Almeida
+2024-04-09,12,Intel Corporation,Zez Performance,6,200,1200,Samsung Pay,Não Realizado,João Santos
+2024-04-12,13,Adobe Inc.,Zez Excel,5,150,750,Visa Checkout,Em Andamento,Ana Silva
+2024-04-16,14,"Uber Technologies, Inc.",Zez Flow,4,120,480,Masterpass,Em Andamento,Maria Oliveira
+2024-04-19,15,"Airbnb, Inc.",Zez Password,7,100,700,American Express Checkout,Concluído,Laura Costa
+2024-04-23,16,Spotify Technology S.A.,Zez Performance,2,200,400,EloPay,Não Realizado,Pedro Almeida
+2024-04-26,17,"Twitter, Inc.",Zez Excel,3,150,450,Diners Club International,Em Andamento,Ana Silva
+2024-04-30,18,LinkedIn Corporation (Microsoft),Zez Performance,8,200,1600,Ticket Restaurante,Concluído,Maria Oliveira
+2024-05-03,19,"PayPal Holdings, Inc.",Zez Flow,5,120,600,Vale-Cultura,Em Andamento,João Santos
+2024-05-07,20,"Salesforce.com, Inc.",Zez Password,1,100,100,Cheque,Não Realizado,Laura Costa

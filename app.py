@@ -3,8 +3,12 @@ from flask import Flask, jsonify, redirect, render_template, request, url_for, s
 from werkzeug.utils import secure_filename
 import pandas as pd
 import json
+from plotly import express as px
 import xml.etree.ElementTree as ET
 import sqlite3
+import plotly.express as px
+from datetime import datetime
+import plotly.graph_objs as go
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
@@ -147,6 +151,69 @@ def uploadanalises():
     return jsonify({'error': 'No file provided'})
 
 
+def get_column_titles(file):
+    df = pd.read_excel(file)
+    return df.columns.tolist()
+
+import plotly.express as px
+
+@app.route('/plot', methods=['POST'])
+def plot():
+    try:
+        if 'file' not in request.files:
+            return jsonify({'error': 'Nenhum arquivo enviado'}), 400
+
+        file = request.files['file']
+        if file.filename == '':
+            return jsonify({'error': 'Nenhum arquivo selecionado'}), 400
+
+        column1 = request.form['column1']
+        column2 = request.form['column2']
+        chart_type = request.form['chart_type']
+
+        # Lendo o arquivo Excel
+        df = pd.read_excel(file)
+
+        # Gerando o gráfico com os dados do arquivo
+        if chart_type == 'pie':
+            fig = px.pie(df, names=column1, values=column2, title='Gráfico de Pizza')
+        elif chart_type == 'bar':
+            fig = px.bar(df, x=column1, y=column2, title='Gráfico de Barras')
+        elif chart_type == 'line':
+            fig = px.line(df, x=column1, y=column2, title='Gráfico de Linhas')
+        elif chart_type == 'scatter':
+            fig = px.scatter(df, x=column1, y=column2, title='Gráfico de Dispersão')
+
+        # Salvar o gráfico como HTML para ser exibido na página
+        graph_html = fig.to_html(full_html=False)
+
+        return render_template('grafico.html', graph_html=graph_html)
+    except Exception as e:
+        return f"Erro ao processar a requisição: {e}", 400
+
+
+@app.route('/uploadgrafic', methods=['GET'])
+def upload_grafico():
+    return render_template('grafico.html')
+
+@app.route('/get_columns', methods=['POST'])
+def get_columns():
+    if 'file' not in request.files:
+        return jsonify({'error': 'Nenhum arquivo enviado'}), 400
+
+    file = request.files['file']
+    if file.filename == '':
+        return jsonify({'error': 'Nenhum arquivo selecionado'}), 400
+
+    # Lendo o arquivo Excel
+    df = pd.read_excel(file)
+
+    # Obtendo os títulos das colunas
+    colunas = df.columns.tolist()
+
+    # Retornando os títulos das colunas como JSON
+    return jsonify(colunas)
 
 if __name__ == '__main__':
     app.run(debug=True)
+

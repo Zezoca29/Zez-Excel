@@ -16,6 +16,7 @@ function manipularDados() {
 function montarGrafico() {
     // Lógica para montar gráfico
     console.log('Montar gráfico');
+    window.location.href = ' /uploadgrafic';
 }
 
 function showButtons() {

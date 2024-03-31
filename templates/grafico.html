@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montagem de Gráficos</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/Zez Excel.ico') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style2.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/grafic.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Montagem de Gráficos</h1>
+
+    <form id="uploadForm" action="/plot" method="POST" enctype="multipart/form-data">
+        <label for="file">Selecione um arquivo Excel:</label>
+        <input type="file" id="file" name="file" accept=".xls,.xlsx" onchange="handleFileChange(event)"><br><br>
+
+        <label for="column1">Selecione a primeira coluna:</label><br>
+        <select id="column1" name="column1">
+            <!-- Opções preenchidas dinamicamente com JavaScript -->
+        </select><br><br>
+
+        <label for="column2">Selecione a segunda coluna:</label><br>
+        <select id="column2" name="column2">
+            <!-- Opções preenchidas dinamicamente com JavaScript -->
+        </select><br><br>
+
+        <label for="chart_type">Selecione o tipo de gráfico:</label><br>
+        <select id="chart_type" name="chart_type">
+            <option value="bar">Gráfico de Barras</option>
+            <option value="line">Gráfico de Linhas</option>
+            <option value="scatter">Gráfico de Dispersão</option>
+            <option value="pie">Gráfico de Pizza</option>
+        </select><br><br>
+
+        <input type="submit" value="Gerar Gráfico">
+    </form>
+
+    <div id="grafico">
+        {% if graph_html %}
+            {{ graph_html | safe }}
+        {% endif %}
+    </div>
+    
+
+    <script>
+        function handleFileChange(event) {
+            var file = event.target.files[0];
+            var formData = new FormData();
+            formData.append('file', file);
+
+            fetch('/get_columns', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                var select1 = document.getElementById('column1');
+                var select2 = document.getElementById('column2');
+
+                select1.innerHTML = '';
+                select2.innerHTML = '';
+
+                data.forEach(column => {
+                    var option1 = document.createElement('option');
+                    option1.value = column;
+                    option1.textContent = column;
+                    select1.appendChild(option1);
+
+                    var option2 = document.createElement('option');
+                    option2.value = column;
+                    option2.textContent = column;
+                    select2.appendChild(option2);
+                });
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+        }
+    </script>
+</body>
+</html>
