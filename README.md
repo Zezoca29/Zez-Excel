@@ -1,6 +1,7 @@
 **Zez Excel**
 
 **Objetivo**
+
 Desenvolver uma aplicação web para manipulação e visualização interativa de arquivos Excel, oferecendo diversas funcionalidades de conversão, ordenação, filtragem, cálculo e visualização de dados.
 
 **Funcionalidades**
